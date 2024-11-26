@@ -1,2 +1,2 @@
 # MadhuriLonche
-"Madhuri Lonche" is an e-commerce website for a local pickle business, featuring a user-friendly frontend, secure SQLite database, Express.js backend, payment integration, QR code generation, and automated billing.
+"Madhuri Lonche" is an e-commerce platform designed for a local pickle business. It features a modern frontend built with HTML, Tailwind CSS, and JavaScript, a secure SQLite database for user data, and an Express.js backend. The site supports seamless payment integration, generates QR codes for transactions, and calculates the total bill for customers.
