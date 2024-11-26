@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhuri Lonche</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Merriweather&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Carattere&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- <i class="fab fa-facebook-f"></i> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <header class="bg-white p-6 flex justify-between items-center">
+            <div class="logo flex items-center">
+                <img src="image_favicon/pickel_logo.jpg" alt="logo" class="h-14 w-14 rounded-full">
+                <span class="ml-4 text-3xl font-semibold">Madhuri Lonche</span>
+            </div>
+            <nav class="flex space-x-6">
+                <a href="#Home" class="text-xl text-gray-700">Home</a>
+                <a href="#Deals" class="text-xl text-gray-700">Deals</a>
+                <a href="#footer" class="text-xl text-gray-700">Contact Us</a>
+                <a href="#About" class="text-xl text-gray-700">About</a>
+            </nav>
+            <div class="sigIncontainer">
+                <button id="logInButton" class="bg-green-500 text-white py-2 px-6 rounded-lg cursor-pointer">Log in</button>
+                <button id="signInButton" class="bg-green-500 text-white py-2 px-6 rounded-lg cursor-pointer">Sign in</button>
+            </div>
+        </header>
+        
+    </div>
+
+    <div class="welcome-container">
+
+        <div class="heroimg">
+            <img src="image_favicon/spices_hero1.jpg" alt="hero1">
+        </div>
+
+
+        <div class="text-overlay">
+            <h1> Dive deep into the world of spciee taste </h1>
+        </div>
+
+
+    </div>
+
+
+    <div id="About" class="hero2">
+        <img src="image_favicon/heroo2.jpg" alt="her02">
+        <p class="heroText">
+            In our kitchen, my mother's pickles are a culinary masterpiece, brimming with love and tradition.
+            From fresh ingredients to patient seasoning, each jar tells a story of warmth, nostalgia, and the timeless
+            art of home.
+        </p>
+    </div>
+
+
+    <div class="content">
+        <main class="main">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full p-8">
+                <!-- Product cards repeated here -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition-all">
+                    <a href="#">
+                        <img src="image_favicon/mango2.jpeg" alt="Aam pickle" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4 flex flex-col justify-between h-full">
+                        <div>
+                            <h2 class="text-xl font-semibold">Mango pickle</h2>
+                            <p class="text-gray-600 py-2">70 Rs/200 gm</p>
+                        </div>
+
+                        <!-- Initially show the 'Add to Cart' button -->
+                        <div class="add-to-cart-container">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full hover:bg-green-600 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- The + and - buttons will be shown after adding the item to the cart -->
+                        <div class="quantity-control hidden mt-4 flex justify-between items-center">
+                            <button class="decrement bg-red-500 text-white px-3 py-1 rounded">-</button>
+                            <span class="item-count">0</span>
+                            <button class="increment bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition-all">
+                    <a href="#">
+                        <img src="image_favicon/mirchi.jpeg" alt="mirchi pickle" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4 flex flex-col justify-between h-full">
+                        <div>
+                            <h2 class="text-xl font-semibold">Mirchi pickle</h2>
+                            <p class="text-gray-600 py-2">70 Rs/200 gm</p>
+                        </div>
+                        <!-- Initially show the 'Add to Cart' button -->
+                        <div class="add-to-cart-container">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full hover:bg-green-600 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- The + and - buttons will be shown after adding the item to the cart -->
+                        <div class="quantity-control hidden mt-4 flex justify-between items-center">
+                            <button class="decrement bg-red-500 text-white px-3 py-1 rounded">-</button>
+                            <span class="item-count">0</span>
+                            <button class="increment bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition-all">
+                    <a href="#">
+                        <img src="image_favicon/amla.jpeg" alt="amla pickle" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4 flex flex-col justify-between h-full">
+                        <div>
+                            <h2 class="text-xl font-semibold">Amla pickle</h2>
+                            <p class="text-gray-600 py-2">70 Rs/200 gm</p>
+                        </div>
+                        <!-- Initially show the 'Add to Cart' button -->
+                        <div class="add-to-cart-container">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full hover:bg-green-600 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- The + and - buttons will be shown after adding the item to the cart -->
+                        <div class="quantity-control hidden mt-4 flex justify-between items-center">
+                            <button class="decrement bg-red-500 text-white px-3 py-1 rounded">-</button>
+                            <span class="item-count">0</span>
+                            <button class="increment bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition-all">
+                    <a href="#">
+                        <img src="image_favicon/lemon.jpeg" alt="lemon pickle" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4 flex flex-col justify-between h-full">
+                        <div>
+                            <h2 class="text-xl font-semibold">lemon pickle</h2>
+                            <p class="text-gray-600 py-2">70 Rs/200 gm</p>
+                        </div>
+                        <!-- Initially show the 'Add to Cart' button -->
+                        <div class="add-to-cart-container">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full hover:bg-green-600 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- The + and - buttons will be shown after adding the item to the cart -->
+                        <div class="quantity-control hidden mt-4 flex justify-between items-center">
+                            <button class="decrement bg-red-500 text-white px-3 py-1 rounded">-</button>
+                            <span class="item-count">0</span>
+                            <button class="increment bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition-all">
+                    <a href="#">
+                        <img src="image_favicon/karel.jpeg" alt="karela pickle" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4 flex flex-col justify-between h-full">
+                        <div>
+                            <h2 class="text-xl font-semibold">karela (Bitter Gaurd) pickle</h2>
+                            <p class="text-gray-600 py-2">70 Rs/200 gm</p>
+                        </div>
+                        <!-- Initially show the 'Add to Cart' button -->
+                        <div class="add-to-cart-container">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full hover:bg-green-600 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- The + and - buttons will be shown after adding the item to the cart -->
+                        <div class="quantity-control hidden mt-4 flex justify-between items-center">
+                            <button class="decrement bg-red-500 text-white px-3 py-1 rounded">-</button>
+                            <span class="item-count">0</span>
+                            <button class="increment bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition-all">
+                    <a href="#">
+                        <img src="image_favicon/karvant.jpeg" alt="karvant pickle" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4 flex flex-col justify-between h-full">
+                        <div>
+                            <h2 class="text-xl font-semibold">karvant pickle</h2>
+                            <p class="text-gray-600 py-2">70 Rs/200 gm</p>
+                        </div>
+                        <!-- Initially show the 'Add to Cart' button -->
+                        <div class="add-to-cart-container">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full hover:bg-green-600 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- The + and - buttons will be shown after adding the item to the cart -->
+                        <div class="quantity-control hidden mt-4 flex justify-between items-center">
+                            <button class="decrement bg-red-500 text-white px-3 py-1 rounded">-</button>
+                            <span class="item-count">0</span>
+                            <button class="increment bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md hover:scale-105 transform transition-all">
+                    <a href="#">
+                        <img src="image_favicon/murabba.jpeg" alt="murabba" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4 flex flex-col justify-between h-full">
+                        <div>
+                            <h2 class="text-xl font-semibold">Sweet Murabba </h2>
+                            <p class="text-gray-600 py-2">70 Rs/200 gm</p>
+                        </div>
+                        <!-- Initially show the 'Add to Cart' button -->
+                        <div class="add-to-cart-container">
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md w-full hover:bg-green-600 transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <!-- The + and - buttons will be shown after adding the item to the cart -->
+                        <div class="quantity-control hidden mt-4 flex justify-between items-center">
+                            <button class="decrement bg-red-500 text-white px-3 py-1 rounded">-</button>
+                            <span class="item-count">0</span>
+                            <button class="increment bg-green-500 text-white px-3 py-1 rounded">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="cart-summary" class="mt-6 p-4 border border-gray-300 rounded-md">
+                <!-- Cart summary will be dynamically populated here -->
+                
+                
+            </div>
+        </main>
+    </div>
+    
+
+
+    <div class="feedback-section">
+        <div class="background-img"></div>
+        <div class="feedback-form">
+            <h2>Provide Feedback</h2>
+            <form>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+    
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" placeholder="Enter your feedback" rows="4" required></textarea>
+    
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    <footer id="footer" class="footer bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Contact Section -->
+            <div class="footer-contact">
+                <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                <p class="text-gray-400">Email: <a href="mailto:madhurilonch@gmail.com" class="text-blue-400 hover:underline">madhurilonch@gmail.com</a></p>
+                <p class="text-gray-400">Phone: <a href="tel:+919764057659" class="text-blue-400 hover:underline">+91 9764057659</a></p>
+                <p class="text-gray-400">Address: Rukhamini Nagar daphale hospital 444606, Amravati, Maharashtra.</p>
+            </div>
+    
+            <!-- Social Media Section -->
+            <div class="footer-social">
+                <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                <div class="flex gap-4">
+                    <a href="https://facebook.com" target="_blank" class="hover:text-blue-400">
+                        <img src="image_favicon/facebook.png" alt="Facebook" class="w-6 h-6">
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" class="hover:text-pink-400">
+                        <img src="image_favicon/instagram.png" alt="Instagram" class="w-6 h-6">
+                    </a>
+
+                </div>
+            </div>
+    
+            <!-- Quick Links Section -->
+            <div class="footer-links">
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="text-gray-400">
+                    <li><a href="#about" class="hover:text-blue-400">About Us</a></li>
+                    <li><a href="#services" class="hover:text-blue-400">Services</a></li>
+                    <li><a href="#feedback" class="hover:text-blue-400">Feedback</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="mt-8 text-center text-gray-500">
+            <p>© 2024 Madhuri_Lonche. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+</body>
+
+
+<script src="app.js"></script>
+
+
+
+</html>
