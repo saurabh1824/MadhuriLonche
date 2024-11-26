@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Payment Page</title>
+</head>
+<body class="bg-[#e3d26f] min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Payment Page</h1>
+
+        <div class="flex flex-wrap md:flex-nowrap space-y-6 md:space-y-0 md:space-x-6">
+            <!-- Order Summary -->
+            <div id="cart-summary" class="flex-1 bg-gray-50 p-4 rounded-md shadow-md">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Order Summary</h2>
+                <ul id="order-items" class="space-y-4"></ul>
+                <div id="cart-total" class="mt-4 text-right font-bold text-gray-800"></div>
+            </div>
+
+            <!-- QR Code Section -->
+            <div class="w-full md:w-auto flex justify-center items-center bg-gray-50 p-6 rounded-md shadow-md">
+                <div class="text-center">
+                    <p class="text-gray-700 font-medium mb-4">Scan the QR Code to Pay</p>
+                    <img id="qr-code" class="w-48 h-48 mx-auto" alt="QR Code" />
+                    <p class="text-gray-500 text-sm mt-4">Total: ₹<span id="total-amount"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirm Payment Button -->
+        <div class="mt-6 text-center">
+            <!-- Confirm Payment Button -->
+            <button id="confirm-payment" class="bg-[#a15e49] text-white py-3 px-6 rounded-lg shadow-md hover:bg-[#7f4b38] focus:outline-none focus:ring-4 focus:ring-[#a15e49] transition-all duration-300 transform hover:scale-105">
+                Confirm Payment
+            </button>
+        
+            <!-- Back to Store Button -->
+            <button id="BacktoStoreButton" class="bg-[#4e3822] text-white py-3 px-6 rounded-lg shadow-md hover:bg-[#3b2a1d] focus:outline-none focus:ring-4 focus:ring-[#4e3822] transition-all duration-300 transform hover:scale-105 mt-4 md:mt-0">
+                Back to Store
+            </button>
+        </div>
+        
+    </div>
+
+    <script>
+        // Confirm Payment Button Functionality
+        document.getElementById("confirm-payment").addEventListener("click", async () => {
+            const userId = localStorage.getItem("userId");
+            const orderSummary = JSON.parse(localStorage.getItem("orderSummary"));
+            const totalAmount = localStorage.getItem("totalAmount");
+
+            if(!userId){
+                alert("Please log in to place the order!");
+                window.location.href="login.html";
+            }
+            if ( !orderSummary || orderSummary.length === 0) {
+                alert("Invalid order data. Please try again.");
+                return;
+            }
+
+            const orderDetails = orderSummary.map((item) => ({
+                name: item.name,
+                quantity: item.count,
+                price: item.totalPrice,
+            }));
+
+            try {
+                const response = await fetch("http://localhost:3000/save-order", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ userId, orderDetails, totalAmount }),
+                });
+
+                if (response.ok) {
+                    alert("Order saved successfully!");
+                    window.location.href = "index.html";
+                } else {
+                    const error = await response.json();
+                    alert(`Error: ${error.error}`);
+                }
+            } catch (err) {
+                console.error("Error saving order:", err);
+                alert("Failed to save order. Please try again.");
+            }
+
+            
+        });
+
+        document.getElementById("BacktoStoreButton").addEventListener("click", () => {
+            localStorage.clear(); // Clear local storage
+            console.log("Local storage cleared. Redirecting to store...");
+            window.location.href = "index.html"; // Redirect to index.html
+        });
+        // On Page Load: Render Order Summary and Generate QR Code
+        window.onload = async () => {
+            const orderSummary = JSON.parse(localStorage.getItem("orderSummary"));
+            const totalAmount = localStorage.getItem("totalAmount");
+            const qrCodeImage = document.getElementById("qr-code");
+            const totalAmountDisplay = document.getElementById("total-amount");
+            const orderItemsList = document.getElementById("order-items");
+            const cartTotalDiv = document.getElementById("cart-total");
+
+            // Display Total Amount
+            totalAmountDisplay.textContent = totalAmount;
+
+            // Generate QR Code
+            if (totalAmount) {
+                try {
+                    const response = await fetch(`http://localhost:3000/generate-qr?amount=${totalAmount}`);
+                    if (response.ok) {
+                        const qrData = await response.blob();
+                        const qrURL = URL.createObjectURL(qrData);
+                        qrCodeImage.src = qrURL;
+                    } else {
+                        alert("Failed to generate QR Code. Please try again.");
+                        qrCodeImage.alt = "Failed to load QR Code";
+                    }
+                } catch (err) {
+                    console.error("Error generating QR Code:", err);
+                    alert("An error occurred while generating the QR Code.");
+                }
+            }
+
+            // Render Order Summary
+            if (orderSummary && orderSummary.length > 0) {
+                let total = 0;
+
+                orderSummary.forEach((item) => {
+                    const itemElement = document.createElement("li");
+                    itemElement.className = "flex justify-between items-center bg-white p-3 rounded shadow";
+                    itemElement.innerHTML = `
+                        <div>
+                            <p class="font-medium text-gray-700">${item.name}</p>
+                            <p class="text-sm text-gray-500">Quantity: ${item.count}</p>
+                        </div>
+                        <p class="text-gray-700">₹${item.totalPrice}</p>
+                    `;
+                    total += item.totalPrice;
+                    orderItemsList.appendChild(itemElement);
+                });
+
+                cartTotalDiv.textContent = `Total Amount: ₹${total}`;
+            } else {
+                orderItemsList.innerHTML = `<p class="text-gray-500">Your cart is empty. Please add items to continue.</p>`;
+            }
+
+        };
+    </script>
+</body>
+</html>
